@@ -1,0 +1,22 @@
+*{
+    background-color: black;
+    color: white;
+}
+
+.cabecalho img{
+    height: 5em;
+}
+
+.cabecalho{
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+}
+.cabecalho__nav{
+    display: flex;
+    gap: 50px;
+}
+
+.cabecalho__itens{
+    color: blueviolet;
+}
