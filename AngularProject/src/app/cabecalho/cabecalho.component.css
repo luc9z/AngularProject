@@ -16,7 +16,9 @@
     display: flex;
     gap: 50px;
 }
-
-.cabecalho__itens{
-    color: blueviolet;
+a{
+    text-decoration: none;
+}
+a:hover{
+    cursor: pointer;
 }
