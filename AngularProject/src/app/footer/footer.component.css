@@ -4,28 +4,8 @@
   padding: 2rem 0;
   text-align: center;
 }
-
-.footer .container {
+.container {
   max-width: 1200px;
   margin: auto;
   padding: 0 1rem;
-}
-
-.footer .social-links {
-  list-style: none;
-  padding: 0;
-}
-
-.footer .social-links li {
-  display: inline;
-  margin: 0 1rem;
-}
-
-.footer .social-links a {
-  color: white;
-  text-decoration: none;
-}
-
-.footer .social-links a:hover {
-  text-decoration: underline;
 }
