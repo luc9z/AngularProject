@@ -1,0 +1,10 @@
+{
+  "dependencies": {
+    "@angular-devkit/build-angular": "^19.2.11",
+    "@angular/core": "^19.2.10",
+    "@angular/router": "^19.2.10",
+    "jquery": "^3.7.1",
+    "rxjs": "^7.8.2",
+    "tslib": "^2.8.1"
+  }
+}

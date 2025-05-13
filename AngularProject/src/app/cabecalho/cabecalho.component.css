@@ -1,6 +1,6 @@
 *{
-    background-color: black;
-    color: white;
+    background-color: var(--background-color);
+    color: var(--text-color);
 }
 
 .cabecalho img{
@@ -21,4 +21,21 @@ a{
 }
 a:hover{
     cursor: pointer;
+}
+
+.theme-toggle {
+  background-color: #4CAF50;  /* Cor verde */
+  color: white;
+  border: 2px solid black;
+  border-radius: 10px;
+  cursor: pointer;
+  font-size: 20px;
+  padding: 10px;
+  margin: 10px;
+  box-shadow: 0 0 5px black;
+}
+
+.theme-toggle:hover {
+  background-color: #45a049;  /* Verde mais escuro */
+  transform: scale(1.1);
 }

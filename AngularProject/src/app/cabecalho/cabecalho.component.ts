@@ -1,11 +1,15 @@
 import { Component } from '@angular/core';
-import { RouterModule } from '@angular/router';
+import { RouterLink } from '@angular/router';
+import { ThemeService } from '../services/theme.service';
+import { CommonModule } from '@angular/common';
 
 @Component({
   selector: 'app-cabecalho',
   standalone: true,
-  imports: [RouterModule],
+  imports: [RouterLink, CommonModule],
   templateUrl: './cabecalho.component.html',
   styleUrl: './cabecalho.component.css'
 })
-export class CabecalhoComponent {}
+export class CabecalhoComponent {
+  constructor(public themeService: ThemeService) {}
+}

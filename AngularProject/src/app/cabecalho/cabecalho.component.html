@@ -8,6 +8,9 @@
       <nav class="cabecalho__itens"><a routerLink="/sobre">Sobre</a></nav>
       <nav class="cabecalho__itens"><a routerLink="/contato">Contato</a></nav>
       <nav class="cabecalho__itens"><a routerLink="/pokemon">Pokémons</a></nav>
+      <button (click)="themeService.toggleTheme()" class="theme-toggle">
+        Mudar Tema {{ (themeService.isDarkTheme$ | async) ? '☀️' : '🌙' }}
+      </button>
     </div>  
   </div>
   
