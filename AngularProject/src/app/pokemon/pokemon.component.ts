@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { PokemonService } from '../services/pokemon.service';
+import { ThemeService } from '../services/theme.service';
 import { forkJoin } from 'rxjs';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
@@ -20,17 +21,24 @@ export class PokemonComponent implements OnInit {
   currentPage = 1;
   totalPokemons = 0;
   totalPages = 0;
+  currentTheme: string = 'light';
 
-  constructor(private pokemonService: PokemonService) {}
+  constructor(
+    private pokemonService: PokemonService,
+    private themeService: ThemeService
+  ) {}
 
   ngOnInit() {
-      this.pokemonService.getPokemonList(1, 0).subscribe(response => {
-        this.totalPokemons = response.count;
-        this.totalPages = Math.ceil(this.totalPokemons / 12);
-        this.loadPokemons();
-      });
-      this.loadAllPokemonNames();
+    this.themeService.theme$.subscribe(theme => {
+      this.currentTheme = theme;
+    });
 
+    this.pokemonService.getPokemonList(1, 0).subscribe(response => {
+      this.totalPokemons = response.count;
+      this.totalPages = Math.ceil(this.totalPokemons / 12);
+      this.loadPokemons();
+    });
+    this.loadAllPokemonNames();
   }
 
   loadPokemons() {

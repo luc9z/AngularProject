@@ -5,30 +5,32 @@ import { BehaviorSubject } from 'rxjs';
   providedIn: 'root'
 })
 export class ThemeService {
-  private isDarkTheme = new BehaviorSubject<boolean>(true);
-  isDarkTheme$ = this.isDarkTheme.asObservable();
+  private themeSubject = new BehaviorSubject<string>('light');
+  theme$ = this.themeSubject.asObservable();
 
   constructor() {
-    // Verifica se há um tema salvo no localStorage
-    const savedTheme = localStorage.getItem('theme');
-    if (savedTheme) {
-      this.isDarkTheme.next(savedTheme === 'dark');
-      document.body.classList.toggle('light-theme', savedTheme === 'light');
-    }
+    // Recupera o tema salvo no localStorage ou usa 'light' como padrão
+    const savedTheme = localStorage.getItem('theme') || 'light';
+    this.setTheme(savedTheme);
   }
 
-  toggleTheme() {
-    const newTheme = !this.isDarkTheme.value;
-    this.isDarkTheme.next(newTheme);
-    localStorage.setItem('theme', newTheme ? 'dark' : 'light');
-    document.body.classList.toggle('light-theme', !newTheme);
+  setTheme(theme: string) {
+    this.themeSubject.next(theme);
+    localStorage.setItem('theme', theme);
+    
+    // Aplica o tema no elemento HTML raiz
+    document.documentElement.setAttribute('data-theme', theme);
     
     // Força a atualização do tema em todos os elementos
     document.querySelectorAll('*').forEach(element => {
       if (element instanceof HTMLElement) {
-        element.style.backgroundColor = getComputedStyle(document.body).getPropertyValue('--background-color');
-        element.style.color = getComputedStyle(document.body).getPropertyValue('--text-color');
+        element.style.backgroundColor = getComputedStyle(document.documentElement).getPropertyValue('--background-color');
+        element.style.color = getComputedStyle(document.documentElement).getPropertyValue('--text-color');
       }
     });
+  }
+
+  getTheme() {
+    return this.themeSubject.value;
   }
 } 

@@ -8,8 +8,13 @@ import { CommonModule } from '@angular/common';
   standalone: true,
   imports: [RouterLink, CommonModule],
   templateUrl: './cabecalho.component.html',
-  styleUrl: './cabecalho.component.css'
+  styleUrls: ['./cabecalho.component.css']
 })
 export class CabecalhoComponent {
   constructor(public themeService: ThemeService) {}
+
+  toggleTheme() {
+    const currentTheme = this.themeService.getTheme();
+    this.themeService.setTheme(currentTheme === 'light' ? 'dark' : 'light');
+  }
 }

@@ -11,7 +11,7 @@
 <div *ngIf="isLoading">Carregando Pokémons...</div>
 
 <div class="card-grid" *ngIf="!isLoading && filteredPokemons.length > 0">
-  <div class="card" *ngFor="let pokemon of filteredPokemons">
+  <div class="card" [ngClass]="{'light-theme': currentTheme === 'light', 'dark-theme': currentTheme === 'dark'}" *ngFor="let pokemon of filteredPokemons">
     <h3 class="pokemon-name">{{ pokemon.name | titlecase }}</h3>
     <img [src]="pokemon.image" alt="{{ pokemon.name }}" class="pokemon-image" />
     <ul class="pokemon-stats">

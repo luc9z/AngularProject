@@ -1,15 +1,16 @@
 <div class="cabecalho">
     <div class="cabecalho__imagem">
       <a routerLink="/">
-        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/6/6d/Angular_wordmark_gradient.png/1200px-Angular_wordmark_gradient.png" alt="">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/6/6d/Angular_wordmark_gradient.png/1200px-Angular_wordmark_gradient.png" alt="Angular Logo">
       </a>
     </div>
     <div class="cabecalho__nav">
       <nav class="cabecalho__itens"><a routerLink="/sobre">Sobre</a></nav>
       <nav class="cabecalho__itens"><a routerLink="/contato">Contato</a></nav>
       <nav class="cabecalho__itens"><a routerLink="/pokemon">Pokémons</a></nav>
-      <button (click)="themeService.toggleTheme()" class="theme-toggle">
-        Mudar Tema {{ (themeService.isDarkTheme$ | async) ? '☀️' : '🌙' }}
+      <button (click)="toggleTheme()" class="theme-toggle">
+        {{ (themeService.theme$ | async) === 'light' ? '🌙' : '☀️' }}
+        {{ (themeService.theme$ | async) === 'light' ? 'Modo Escuro' : 'Modo Claro' }}
       </button>
     </div>  
   </div>

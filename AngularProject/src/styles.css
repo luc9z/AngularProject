@@ -1,35 +1,117 @@
 :root {
+  --background-color: #ffffff;
+  --text-color: #333333;
+  --card-background: linear-gradient(135deg, #ffffff 0%, #f1f1f1 100%);
+  --card-border: #e0e0e0;
+  --card-shadow: rgba(0, 0, 0, 0.1);
+  --primary-color: #4CAF50;
+  --hover-background: rgba(0, 0, 0, 0.05);
+  --footer-bg: #000000;
+  --carousel-button-bg: transparent;
+  --carousel-arrow-color: #000000;
+}
+
+[data-theme="dark"] {
   --background-color: #121212;
   --text-color: #ffffff;
-  --primary-color: #bb86fc;
-  --secondary-color: #03dac6;
-  --error-color: #cf6679;
-  --footer-bg: #333;
+  --card-background: linear-gradient(135deg, #1a1a1a 0%, #2d2d2d 100%);
+  --card-border: #333333;
+  --card-shadow: rgba(0, 0, 0, 0.3);
+  --primary-color: #45a049;
+  --hover-background: rgba(255, 255, 255, 0.1);
+  --footer-bg: #000000;
+  --carousel-button-bg: transparent;
+  --carousel-arrow-color: #ffffff;
 }
 
-.light-theme {
-  --background-color: #ffffff;
-  --text-color: #000000;
-  --primary-color: #6200ee;
-  --secondary-color: #03dac6;
-  --error-color: #b00020;
-  --footer-bg: #ffffff;
-}
-
-body {
-  background-color: var(--background-color) !important;
-  color: var(--text-color) !important;
-  transition: all 0.3s ease;
+html, body {
+  margin: 0;
+  padding: 0;
+  background-color: var(--background-color);
+  color: var(--text-color);
+  transition: background-color 0.3s ease, color 0.3s ease;
+  min-height: 100vh;
 }
 
 * {
-  padding: 0;
-  margin: 0;
-  background-color: var(--background-color) !important;
-  color: var(--text-color) !important;
-  transition: all 0.3s ease;
+  box-sizing: border-box;
+  transition: background-color 0.3s ease, color 0.3s ease;
 }
 
-h1, h2, h3, h4, h5, h6, p, span, a {
+/* Forçar cores em todos os elementos */
+div, section, main, article, aside, nav, header, footer {
+  background-color: var(--background-color) !important;
+  color: var(--text-color) !important;
+}
+
+h1, h2, h3, h4, h5, h6, p, span, a, li, button, input, textarea, select {
+  color: var(--text-color) !important;
+}
+
+/* Ajustes específicos para elementos de formulário */
+input, textarea, select {
+  background-color: var(--background-color) !important;
+  border-color: var(--card-border) !important;
+}
+
+/* Ajustes para links */
+a {
+  color: var(--text-color) !important;
+  text-decoration: none;
+}
+
+a:hover {
+  opacity: 0.8;
+}
+
+/* Ajustes para botões */
+button {
+  background-color: var(--primary-color) !important;
+  color: white !important;
+  border: none;
+}
+
+button:hover {
+  opacity: 0.9;
+}
+
+/* Ajuste específico para botões do carrossel */
+.carousel-button {
+  background-color: var(--carousel-button-bg) !important;
+  color: white !important;
+  border: none;
+}
+
+.carousel-button:hover {
+  opacity: 0.9;
+  background-color: var(--carousel-button-bg) !important;
+}
+
+/* Ajustes para o footer */
+footer {
+  background-color: var(--footer-bg) !important;
+  color: var(--text-color) !important;
+}
+
+/* Ajustes para o cabeçalho */
+header {
+  background-color: var(--background-color) !important;
+  border-bottom: 1px solid var(--card-border);
+}
+
+/* Ajustes para cards e containers */
+.card, .container, .wrapper {
+  background-color: var(--background-color) !important;
+  border-color: var(--card-border) !important;
+}
+
+/* Ajustes para elementos de lista */
+ul, ol {
+  background-color: var(--background-color) !important;
+  color: var(--text-color) !important;
+}
+
+li {
+  background-color: var(--background-color) !important;
   color: var(--text-color) !important;
 }
