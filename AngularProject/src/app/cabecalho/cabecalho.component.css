@@ -24,15 +24,18 @@ a:hover{
 }
 
 .theme-toggle {
-  background: none;
-  border: none;
+  background-color: #4CAF50;  /* Cor verde */
+  color: white;
+  border: 2px solid black;
+  border-radius: 10px;
   cursor: pointer;
-  font-size: 1.5rem;
-  padding: 0.5rem;
-  margin-left: 1rem;
-  transition: transform 0.3s ease;
+  font-size: 20px;
+  padding: 10px;
+  margin: 10px;
+  box-shadow: 0 0 5px black;
 }
 
 .theme-toggle:hover {
+  background-color: #45a049;  /* Verde mais escuro */
   transform: scale(1.1);
 }
